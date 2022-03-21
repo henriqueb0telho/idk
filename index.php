@@ -8,6 +8,6 @@
     <title>Menu inicial</title>
 </head>
 <body>
-Esse é o index
+Pirocada
 </body>
 </html>
