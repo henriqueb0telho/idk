@@ -22,12 +22,12 @@
 
                     $extentions = ['png', 'jpg', 'jpeg', 'gif'];
                     if(in_array($img_ext, $extentions) === true){
-                        
+                        $time = time();
                     } else {
                         echo "O formato da imagem não é compatível. As imagens têm de ser <i>.png</i>, <i>.jpg</i>, <i>.jpeg</i> ou <i>.gif</i>!";
                     }
                 } else {
-
+                    echo "O ficheiro inserido não é uma imagem.";
                 }
             }
         } else {
