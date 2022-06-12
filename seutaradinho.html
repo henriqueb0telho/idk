@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-Vindo ao Azores hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="menu menu-dps" id="menugeral">
+        <img src="/img/logo.png" alt="">
+        <div class="espacomenu"></div>
+        <div class="menu-link">
+            <a href="/">Home</a><br>
+        </div>
+        <div class="menu-link">
+            <a href="/papixa">papixas</a><br>
+        </div>
+        <div class="menu-link">
+            <a href="/bolocas">bolocas</a><br>
+        </div>
+    </div>
+    <div class="header" id="header">
+        <div>
+            <a id="btn-menu" class="btn-menu" onclick="abrirMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg>
+            </a>
+        </div>
+        <h1 id="titulo">Bem vindo ao AzoresHUB</h1>
+        <div class="links-direita">
+            <p onclick="pride2022()" id="pride2022" class="pride2022">#Pride2022</p>
+        </div>
+    </div>
+    <div class="content" id="contentmain">
+        <h1 style="margin-top: 20%; text-align: center;">Seu taradinho</h1>
+        
+    </div>
+</body>
+
+<script>
+    window.onscroll = function() {myFunction()};
+
+    var header = document.getElementById("header");
+    var sticky = header.offsetTop;
+    var h1 = document.getElementById("titulo");
+    var pride = document.getElementById("pride2022");
+    var btnMenu = document.getElementById("btn-menu");
+    
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("header-dps");
+            btnMenu.classList.add("btn-menu-dps");
+            h1.textContent = "AzoresHUB";
+            pride.textContent = "";
+        } else {
+            header.classList.remove("header-dps");
+            btnMenu.classList.remove("btn-menu-dps");
+            h1.textContent = "Bem-vindo ao AzoresHUB";
+            pride.textContent = "#Pride2022";
+        }
+    }
+    
+    function pride2022() {
+        window.location.href = "https://en.wikipedia.org/wiki/LGBT_pride";
+    }
+    
+    function abrirMenu() {
+        var menugeral = document.getElementById("menugeral");
+        var contentmain = document.getElementById("contentmain");
+        var menuA = document.getElementById("btn-menu");
+    
+        if (menugeral.classList.contains("menu-dps")){
+            menugeral.classList.remove("menu-dps");
+            contentmain.style.marginLeft = "220px";
+            menuA.style.marginLeft = "240px";
+            menuA.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>';
+        } else {
+            menugeral.classList.add("menu-dps");
+            contentmain.classList.add("content-dps");
+            contentmain.style.marginLeft = "20px";
+            menuA.style.marginLeft = "30px";
+            menuA.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg>';
+        }
+    }  
+
+
+</script>
+
+</html>
+

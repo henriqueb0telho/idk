@@ -1,0 +1,181 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    --sidebarlag: 0px;
+    --sidebarlagdps: 200px;
+}
+
+body{
+    background-color: #000;
+    color: #fff;
+}
+
+.header{
+    background: linear-gradient(90deg ,#FE0000,#FD8C00,#FFE500,#119F0B,#0644B3,#C22EDC);;
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    transition: 0.2s ease;
+}
+.content-dps{
+    padding-top: 100px;
+    margin-left: calc(var(--sidebarlagdps) + 20px);
+    background-color: #000;
+}
+
+.content {
+    padding-top: 100px;
+    margin-left: 20px;
+}
+
+.header h1{
+    text-align: center;
+    display:block;
+    color: #fff;
+    padding-top: 20px;
+    font-size: 36px;
+    text-shadow: 3px 3px #000;
+}
+
+.header-dps{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    color: #fff;
+    height: 50px;
+    transition: 0.2s ease;
+}
+
+.header-dps h1{
+    text-align: center;
+    display:block;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: 20px;
+
+}
+
+.header .links-direita {
+    float: right;
+    margin-right: 10px;
+}
+
+.menu {
+    height: 100%;
+    background: whitesmoke;
+    width: var(--sidebarlagdps);
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    transition: 0.2s ease;
+}
+
+.menu-dps {
+    width: var(--sidebarlag);
+}
+
+.header .btn-menu {
+    float: left;
+    color: #fff;
+    margin-top: 25px;
+    margin-left: 30px;
+    height: 30px;
+    width: 30px;
+}
+
+.menu .menu-link{
+    color: black;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.menu .menu-link:visited{
+    color: red;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.menu .espacomenu{
+    margin-top: 20px;
+}
+
+.menu img{
+    width: 100px;
+    margin-left: calc(var(--sidebarlagdps) / 4);
+}
+
+.header .btn-menu-dps {
+    float: left;
+    color: #fff;
+    margin-top: 15px;
+    margin-left: 15px;
+    height: 20px;
+    width: 20px;
+}
+
+.links-direita .pride2022{
+    color: #fff;
+}
+
+.bi-list {
+    height: 30px;
+    width: 30px; 
+}
+
+.content .nrs-pag{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.content .nrs-pag .nr-pag-btn{
+    color: #fff;
+    margin: 0 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    
+}
+
+.content .vidlayout {
+
+}
+
+.content .vidlayout .row {
+    display: table;
+    margin-top: 40px;
+}
+
+.content .vidlayout .row .coluna{
+    display: table-cell;
+}
+
+.content .vidlayout .row .coluna .card {
+    /* box-shadow: 0 4px 8px 0 rgba(255,255,255,0.7); */
+    transition: 0.3s;
+    margin-right: 10px;
+    width: 300px;
+    background-color: #000;
+    color: #fff;
+    margin: 0 10px 0 10px;
+}
+
+.content .vidlayout .row .coluna .card:hover {
+    /* box-shadow: 0 8px 16px 0 rgba(255,255,255,0.7); */
+}
+
+.content .vidlayout .row .coluna .container {
+    padding: 2px 16px;
+}
