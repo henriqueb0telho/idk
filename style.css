@@ -78,6 +78,11 @@ body{
     width: var(--sidebarlag);
 }
 
+.menu-dps #logo{
+    width: 1000px;
+    transition: 0.2s ease;
+}
+
 .header .btn-menu {
     float: left;
     color: #fff;
