@@ -2,7 +2,7 @@
 
 body {
   margin:0;
-  background-color: #000;
+  background-color: #222222;
 } 
 
 h1 {
@@ -26,7 +26,7 @@ p {
 }
 .logo {
   width:50px;
-  fill:black;
+  fill:#222222;
   padding-right:15px;
   display:inline-block;
   vertical-align: middle;
@@ -68,7 +68,7 @@ p {
   position:relative;
   height:20vh;
   text-align:center;
-  background-color: black;
+  background-color: #222222;
   color: white;
 }
 
@@ -133,7 +133,7 @@ p {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20%;
-    margin-bottom: 30px;
+    margin-bottom: 70px;
 }
 
 .div-form .titulo{
@@ -141,6 +141,8 @@ p {
     color: #373737;
     font-family: 'Poppins', sans-serif;
     margin-bottom: 40px;
+    margin-top: 40px;
+    font-size: 26px;
 
 }
 
@@ -153,7 +155,8 @@ p {
     color: #373737;
     border: 2px solid #373737;
     border-radius: 4px;
-    width: 95%;
+    width: 100%;
+    font-size: 16px;
 }
 
 .div-form input[type="submit"]{
@@ -175,10 +178,72 @@ p {
 }
 
 .div-form form{
-    top: 40%;
+    /* top: 40%; */
+    margin-top: 20px;
     width: 100%;
     justify-content: center;
     align-items: center;
     display: flex;
-    position: absolute;
+    /* position: absolute; */
+}
+
+.alert-success {
+  padding: 20px;
+  background-color: green;
+  color: white;
+  left: 50%;
+  right: 50%;
+  border: 3px solid green;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  height: 40px;
+  color: #f44336;
+}
+
+.alert-danger{
+  font-family: 'Poppins', sans-serif;
+  padding: 10px 0;
+  text-align: center;
+  margin: auto;
+  background-color: #ee5c529e;
+  color: white;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  height: 20px;
+  color: #373737;
+  text-align: center;
+  word-wrap: break-word;
+  display: table;
+  max-width: 75%;
+}
+
+.div-form .register-txt {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #373737;
+  text-align: center;
+}
+
+.div-form .register-link {
+  font-size: 16px;
+  text-decoration: none;
+  color: #373737;
+}
+
+.div-form .register-link:hover {
+  text-decoration: underline;
+  color: #FF8008;
+}
+
+.div-form .invalid{
+  border: 2px solid rgb(255, 77, 0);
+}
+
+.div-form .invalid:focus{
+  outline: none !important;
+  border: 2px solid rgb(255, 77, 0);
 }
