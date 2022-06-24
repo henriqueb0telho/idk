@@ -86,12 +86,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Prepare an insert statement
         echo '<script>alert("chegou - prepare insert statment")</script>';
         $password_hashed = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-        $sql = "INSERT INTO `utilizadores` (`id`, `username`, `password`, `nome`, `created_at`) VALUES (NULL, '$username', '$password_hashed', '$nome', CURRENT_TIMESTAMP)";
+        $sql = "INSERT INTO `utilizadores` (`id`, `username`, `password`, `nome`, `created_at`, `cargo`) VALUES (NULL, '$username', '$password_hashed', '$nome', CURRENT_TIMESTAMP, 'Aluno')";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             echo '  <script>alert("chegou - bind variables")</script>';
-            mysqli_stmt_bind_param($stmt, "ssss" , $id,$username, $password_hashed, $nome, $CURRENT_TIMESTAMP);
+            mysqli_stmt_bind_param($stmt, "ssss" , $id,$username, $password_hashed, $nome, $cargo, $CURRENT_TIMESTAMP);
             
             // Set parameters
             echo '<script>alert("chegou - set parametres")</script>';
