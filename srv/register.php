@@ -6,7 +6,6 @@ require_once "db/config.php";
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = $nome_err = $password_hashed = "";
 $CURRENT_TIMESTAMP = "CURRENT_TIMESTAMP";
-echo '<script>alert("chegou a nada")</script>';
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -199,7 +198,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div>
     <!--Content starts-->
     <div class="content flex">
-        <p class="text">Copyright &copy; 2022 | AzoresHUB, inc.</p>
+        <p class="text">Copyright &copy; 2022 | AzoresHUB, inc.<br><small>Feito com &hearts; por <a href="mailto:henriquebotelho250604@gmail.com" style="text-decoration: underline; color: white;">Henrique B. Oliveira</a></small></p>
     </div>
     <!--Content ends-->
 </body>

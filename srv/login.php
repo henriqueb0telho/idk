@@ -161,7 +161,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div>
     <!--Content starts-->
     <div class="content flex">
-        <p class="text">Copyright &copy; 2022 | AzoresHUB, inc.</p>
+        <p class="text">Copyright &copy; 2022 | AzoresHUB, inc.<br><small>Feito com &hearts; por <a href="mailto:henriquebotelho250604@gmail.com" style="text-decoration: underline; color: white;">Henrique B. Oliveira</a></small></p>
     </div>
     <!--Content ends-->
 </body>
