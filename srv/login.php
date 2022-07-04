@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Check if username exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $nome, $cargo, $data);
+                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $nome, $data, $cargo);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
@@ -64,10 +64,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;                            
                             $_SESSION["nome"] = $nome;                            
                             $_SESSION["created_at"] = $data;                            
-                            $_SESSION["cargo"] = $cargo;                            
+                            $_SESSION["cargo"] = $cargo;      
+                            preg_match_all('/\s\w/', $nome, $matches, PREG_SET_ORDER);
+                            $mdl = "";
+                            $i = 1;
+                            while (!empty($matches[$i][0])){
+                                $iniciais = str_replace(' ', '', htmlspecialchars(ucwords($matches[$i-1][0])));
+                                $mdl = $mdl . $iniciais;
+                                $i = $i + 1;
+                            }
+                            $split = explode(" ", $nome); 
+                            $_SESSION["nome_abreviado"] = ucwords(strtok($nome, " ")) . " " . $iniciais . ". " . ucwords($split[count($split)-1]) ;
                             
+
                             // Redirect user to welcome page
-                            header("location: /logado");
+                            if (isset($_GET['url'])) {
+                                $url = $_GET['url'];
+                                header("Location: $url");
+                            } else { 
+                                header("location: /admin");
+                            }
+
                         } else{
                             // Password is not valid, display a generic error message
                             $login_err = "Esta password é incorreta. Tente novamente.";
