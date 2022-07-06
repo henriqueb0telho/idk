@@ -1,0 +1,24 @@
+DirectoryIndex index.php index.html index.htm index2.html
+
+ErrorDocument 403 /erros/403/
+ErrorDocument 404 /erros/404/
+ErrorDocument 500 https://infinityfree.net/errors/500/
+
+#RewriteEngine On
+#RewriteCond %{SERVER_PORT} 80
+#RewriteRule ^(.*)$ https://psi.is-best.net/$1 [R,L]
+
+Options +FollowSymlinks
+
+
+RewriteEngine On
+
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ /$1.php [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ /$1.html [L,QSA]
+

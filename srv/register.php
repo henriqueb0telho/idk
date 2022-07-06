@@ -11,30 +11,24 @@ $CURRENT_TIMESTAMP = "CURRENT_TIMESTAMP";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     // Validate username
-    echo '<script>alert("chegou - validade username")</script>';
     if(empty(trim($_POST["username"]))){
         $username_err = "Introduza um nome de utilizador.";
     } elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
         $username_err = "O nome de utilizador pode conter apenas letras, números e <i>underscrores</i>.";
     } else{
         // Prepare a select statement
-        echo '<script>alert("chegou - prepare statment")</script>';
         $sql = "SELECT id FROM utilizadores WHERE username = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            echo '<script>alert("chegou - bind variable 1")</script>';
             mysqli_stmt_bind_param($stmt, "s", $param_username);
             
             // Set parameters
-            echo '<script>alert("chegou - set parameters")</script>';
             $param_username = trim($_POST["username"]);
             
             // Attempt to execute the prepared statement
-            echo '<script>alert("chegou - execute statment")</script>';
             if(mysqli_stmt_execute($stmt)){
                 /* store result */
-                echo '<script>alert("chegou - store result")</script>';
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){
@@ -52,7 +46,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Validate password
-    echo '<script>alert("chegou - validade password")</script>';
     if(empty(trim($_POST["password"]))){
         $password_err = "Introduz uma password.";     
     } elseif(strlen(trim($_POST["password"])) < 4){
@@ -62,7 +55,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Validate confirm password
-    echo '<script>alert("chegou - validadete confirm password")</script>';
     if(empty(trim($_POST["confirm_password"]))){
         $confirm_password_err = "Confirma a palavra-passe.";     
     } else{
@@ -79,28 +71,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Check input errors before inserting in database
-    echo '<script>alert("chegou - check input")</script>';
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($nome_err)){
         
         
         // Prepare an insert statement
-        echo '<script>alert("chegou - prepare insert statment")</script>';
         $password_hashed = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-        $sql = "INSERT INTO `utilizadores` (`id`, `username`, `password`, `nome`, `created_at`, `cargo`) VALUES (NULL, '$username', '$password_hashed', '$nome', CURRENT_TIMESTAMP, 'Aluno')";
+        $id_unico = rand(time(), 100000000);
+        $sql = "INSERT INTO `utilizadores` (`id`, `username`, `password`, `nome`, `created_at`, `cargo`, `id_unico`) VALUES (NULL, '$username', '$password_hashed', '$nome', CURRENT_TIMESTAMP, 'Aluno', '$id_unico')";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            echo '  <script>alert("chegou - bind variables")</script>';
-            mysqli_stmt_bind_param($stmt, "ssss" , $id,$username, $password_hashed, $nome, $cargo, $CURRENT_TIMESTAMP);
+            mysqli_stmt_bind_param($stmt, "sssss" , $id, $username, $password_hashed, $nome, $CURRENT_TIMESTAMP, $cargo, $id_unico);
             
             // Set parameters
-            echo '<script>alert("chegou - set parametres")</script>';
             $param_username = $username;
             $param_nome = $nome;
 
             
             // Attempt to execute the prepared statement
-            echo '<script>alert("chegou - execute statment")</script>';
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
                 header("location: login.php");
@@ -152,7 +140,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         ?>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
             <div class="group">
-                <label for="username">Nome de Utilizador</label>
+                <label for="username">Nome de Utilizador ( > 6 carateres)</label>
                 <input type="text" id="username" name="username" placeholder="Nome de utilizador" class="<?php if (!empty($username_err)){ echo 'invalid'; } ?>">
 
                 <label for="password">Palavra-passe</label>
