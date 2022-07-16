@@ -1,6 +1,11 @@
 <?php
 // Initialize the session
 session_start();
+if (isset($_GET['url'])){
+    $url = $_GET['url'];
+} else {
+    $url = "";
+}
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
@@ -79,9 +84,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             
 
                             // Redirect user to welcome page
-                            if (isset($_GET['url'])) {
-                                $url = $_GET['url'];
-                                header("Location: $url");
+                            if ($url !== "") {
+                                header("Location: ".$url);
                             } else { 
                                 header("location: /admin");
                             }

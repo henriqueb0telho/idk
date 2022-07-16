@@ -44,7 +44,7 @@ function submit() {
         input.disabled = true;
         input.classList.add("disabled");
     });
-    window.location.href = "http://localhost:9999/login?lgn_cod=" + otp;
+    window.location.href = "http://192.168.1.254:9999/files/login?lgn_cod=" + otp;
 
     console.log(otp);
 }
